@@ -31,3 +31,19 @@ body {
     text-wrap: balance;
   }
 }
+
+.container-parent {
+  display: flex;
+}
+
+.container-left, .container-right {
+  flex: 1;
+}
+
+.container-left {
+  background-color: lightblue; /* 見やすくするための背景色 */
+}
+
+.container-right {
+  background-color: lightgreen; /* 見やすくするための背景色 */
+}

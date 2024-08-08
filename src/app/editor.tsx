@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic';
 import 'easymde/dist/easymde.min.css';
 import { SetStateAction, useState } from 'react';
-import markdownToHtml from '../../../node_modules/zenn-markdown-html/lib/index.js';
+import markdownToHtml from 'zenn-markdown-html';
 import 'zenn-content-css';
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {
