@@ -32,18 +32,25 @@ body {
   }
 }
 
-.container-parent {
+.container-columns {
   display: flex;
+  justify-content: space-between;
 }
 
 .container-left, .container-right {
-  flex: 1;
+  width: 48%; /* Adjust the width to fit your design */
 }
 
-.container-left {
-  background-color: lightblue; /* 見やすくするための背景色 */
+.fig-table-caption {
+  font-size: 14px; 
+  color: #555; 
+  text-align: center; 
+  margin-top: 10px; 
+  margin-bottom: 10px; 
+  padding: 5px; 
 }
 
-.container-right {
-  background-color: lightgreen; /* 見やすくするための背景色 */
+.fig-table-caption div {
+  margin: 0 auto; 
+  display: inline-block; 
 }
