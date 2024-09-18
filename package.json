@@ -16,6 +16,7 @@
     "react-dom": "^18",
     "react-simplemde-editor": "^5.2.0",
     "zenn-content-css": "^0.1.154",
+    "zenn-embed-elements": "^0.1.155",
     "zenn-markdown-html": "https://gitpkg.now.sh/iGEM-Waseda/zenn-editor/packages/zenn-markdown-html?canary"
   },
   "devDependencies": {
