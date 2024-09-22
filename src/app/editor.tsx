@@ -1,10 +1,9 @@
 "use client";
 import dynamic from 'next/dynamic';
 import 'easymde/dist/easymde.min.css';
-import { SetStateAction, useState } from 'react';
+import { SetStateAction, useState, useEffect } from 'react';
 import markdownToHtml from 'zenn-markdown-html';
 import 'zenn-content-css';
-import { useEffect } from 'react';
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {
   ssr: false,
@@ -17,9 +16,21 @@ const MarkdownEditorWithPreview = () => {
     }
   }, []);  
   const [text, setText] = useState('');
+  const [htmlContent, setHtmlContent] = useState('');
 
   const handleChange = (value: SetStateAction<string>) => {
     setText(value);
+  };
+  const handleClick = () => {
+    const htmlRes = markdownToHtml(text);
+    // Copy the HTML to clipboard
+    navigator.clipboard.writeText(htmlRes)
+      .then(() => {
+        console.log("HTML content copied to clipboard!");
+      })
+      .catch(err => {
+        console.error("Failed to copy text: ", err);
+      });
   };
   const htmlRes = markdownToHtml(text);
   return (
@@ -28,7 +39,14 @@ const MarkdownEditorWithPreview = () => {
         <SimpleMDE value={text} onChange={handleChange} spellCheck={false} />
       </div>
       <div className="w-1/2 p-4 bg-gray-100">
-        <div className="znc" dangerouslySetInnerHTML={{ __html: htmlRes }} />
+        <div className="flex justify-end">
+          <button 
+            onClick={handleClick} 
+            className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Copy HTML
+          </button>
+        </div>      
+        <div className="mt-4 znc" dangerouslySetInnerHTML={{ __html: htmlRes }} />
       </div>
     </div>
   );
