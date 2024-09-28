@@ -17,9 +17,14 @@ const MarkdownEditorWithPreview = () => {
   }, []);  
   const [text, setText] = useState('');
   const [htmlContent, setHtmlContent] = useState('');
-
-  const handleChange = (value: SetStateAction<string>) => {
-    setText(value);
+  function unescapeMarkdown(text: string): string {
+    return text.replace(/\\([`*_{}\[\]()#+\-\.!])/g, '$1'); 
+  }
+  const handleChange = (value: string) => {
+    const unescapedText = unescapeMarkdown(value);
+    setText(unescapedText);
+    const htmlRes = markdownToHtml(unescapedText);
+    setHtmlContent(htmlRes);
   };
   const handleClick = () => {
     const htmlRes = markdownToHtml(text);
@@ -32,7 +37,6 @@ const MarkdownEditorWithPreview = () => {
         console.error("Failed to copy text: ", err);
       });
   };
-  const htmlRes = markdownToHtml(text);
   return (
     <div className="flex min-h-screen mt-4">
       <div className="w-1/2 p-4">
@@ -46,7 +50,7 @@ const MarkdownEditorWithPreview = () => {
             Copy HTML
           </button>
         </div>      
-        <div className="mt-4 znc" dangerouslySetInnerHTML={{ __html: htmlRes }} />
+        <div className="mt-4 znc" dangerouslySetInnerHTML={{ __html: htmlContent }} />
       </div>
     </div>
   );
