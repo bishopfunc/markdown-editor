@@ -18,7 +18,7 @@ const MarkdownEditorWithPreview = () => {
   const [text, setText] = useState('');
   const [htmlContent, setHtmlContent] = useState('');
   function unescapeMarkdown(text: string): string {
-    return text.replace(/\\([`*_{}\[\]()#+\-\.!])/g, '$1'); 
+    return text.replace(/\\([`*_{}\[\]()#+\-\.!=])/g, '$1'); 
   }
   const handleChange = (value: string) => {
     const unescapedText = unescapeMarkdown(value);
