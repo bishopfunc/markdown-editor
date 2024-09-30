@@ -54,3 +54,48 @@ body {
   margin: 0 auto; 
   display: inline-block; 
 }
+
+.DBTLtitle p {
+  margin-left: 4rem;
+  font-size: 2rem;
+  margin-bottom: 2px;
+  border-bottom: 4px solid #0068b7;
+}
+
+details {
+  background-color: #f0f8ff;
+  border: 2px solid #a3bce2;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  margin: 1.4rem 0;
+}
+
+details[open] {
+  background-color: #f0f8ff;
+}
+
+details summary {
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+}
+
+details summary:hover {
+  color: #0068b7;
+}
+
+.details-content {
+  padding: 10px;
+  font-size: 1rem;
+  border-top: 1px solid #0068b7;
+}  
+
+.icon {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  z-index: 3;
+}
