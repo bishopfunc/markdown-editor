@@ -99,3 +99,76 @@ details summary:hover {
   border-radius: 50%;
   z-index: 3;
 }
+
+
+
+.znc{
+  .card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    margin: 20px auto;
+    border-left: 6px solid #0067B7;
+  }
+
+  .card{
+    .top-section {
+      display: flex;
+      padding: 20px;
+    }
+
+    .top-section img {
+      height: auto;
+      object-fit: cover;
+    }
+
+    .left-section {
+      flex-basis: 30%;
+      text-align: center;
+    }
+
+    .right-section {
+      flex-grow: 1;
+      padding-left: 20px;
+    }
+
+    .title {
+      font-size: 2.0em;
+      font-weight: bold;
+      color: #0067B7;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 1.5em;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .photo-title {
+      font-size: 0.85em;
+      color: #333;
+      margin-top: 5px;
+    }
+
+    .description {
+      font-size: 0.9em;
+      color: #555;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    .decription-title {
+      padding-top: 2.6em;
+    }
+
+    details {
+      width: 95%;
+      margin: auto;
+      margin-bottom: 10px;
+    }
+  }
+}
